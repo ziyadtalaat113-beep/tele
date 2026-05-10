@@ -45,6 +45,7 @@ export default function App() {
 
     try {
       setStatusMessage('جاري تحميل محرك المعالجة (مرة واحدة فقط)...');
+      
       const loadTimeout = setTimeout(() => {
         setStatusMessage('قد يستغرق التحميل وقتاً حسب سرعة الإنترنت لديك...');
       }, 5000);
@@ -58,8 +59,9 @@ export default function App() {
       setFfmpegLoaded(true);
       setStatusMessage('');
     } catch (err) {
-      console.error(err);
+      console.error("FFmpeg Load Error:", err);
       setError('فشل تحميل المحرك. تأكد من أن متصفحك يدعم تقنيات المعالجة الحديثة ومن اتصال الإنترنت.');
+      setStatusMessage('حدث خطأ في النظام.');
     }
   };
 
